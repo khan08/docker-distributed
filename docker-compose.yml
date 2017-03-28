@@ -8,9 +8,11 @@ services:
        - "8888:8888"
     networks:
       - distributed
-    links:
+    depends_on:
         - dscheduler
-    container_name: jupyter
+    deploy:
+      placement:
+        contraints: [node.role == manager]
 
   dscheduler:
     image: ogrisel/distributed:latest
@@ -21,15 +23,20 @@ services:
     command: start-dscheduler.sh
     networks:
       - distributed
-    container_name: dscheduler
+    deploy:
+      placement:
+        contraints: [node.role == manager]
 
   dworker:
     image: ogrisel/distributed:latest
     command: start-dworker.sh
     networks:
       - distributed
-    links:
+    depends_on:
         - dscheduler
+    deploy:
+      mode: replicated
+    
 
 networks:
   distributed:
