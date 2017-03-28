@@ -12,7 +12,8 @@ services:
         - dscheduler
     deploy:
       placement:
-        contraints: [node.role == manager]
+        contraints: 
+            - node.role == manager
 
   dscheduler:
     image: ogrisel/distributed:latest
@@ -25,7 +26,8 @@ services:
       - distributed
     deploy:
       placement:
-        contraints: [node.role == manager]
+        contraints: 
+           - node.role == manager
 
   dworker:
     image: ogrisel/distributed:latest
