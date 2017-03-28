@@ -41,7 +41,7 @@ services:
     deploy:
       mode: global
       placement:
-        constriants:
+        constraints:
            - node.role == worker
     
 
