@@ -39,7 +39,10 @@ services:
     depends_on:
         - dscheduler
     deploy:
-      mode: replicated
+      mode: global
+      placement:
+        constriants:
+           - node.role == worker
     
 
 networks:
