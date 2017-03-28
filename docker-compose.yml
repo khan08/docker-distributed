@@ -21,7 +21,6 @@ services:
      - "8786:8786"
      - "9786:9786"
      - "8787:8787"
-     - "8789:8789"
     command: start-dscheduler.sh
     networks:
       - distributed
