@@ -32,6 +32,8 @@ services:
   dworker:
     image: ogrisel/distributed:latest
     command: start-dworker.sh
+    ports:
+       - "8789:8789"
     networks:
       - distributed
     depends_on:
