@@ -30,7 +30,7 @@ ENV BASICUSER root
 WORKDIR /work
 
 # Install Python 3 from miniconda
-RUN svn checkout --username khan19 --password hk000@col https://weih.unfuddle.com/svn/weih_cheq/ weih_cheq
+RUN svn checkout --username khan19 --password hk000@col https://weih.unfuddle.com/svn/weih_cheq/ ./weih_cheq/
 RUN wget -O miniconda.sh \
   https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh \
   && bash miniconda.sh -b -p /work/miniconda \
