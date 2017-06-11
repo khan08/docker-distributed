@@ -2,7 +2,7 @@ version: "3"
 
 services:
   jupyter:
-    image: dask_swarm:latest
+    image: ogrisel/distributed:latest
     command: start-notebook.sh
     ports:
        - "8888:8888"
@@ -16,7 +16,7 @@ services:
             - node.role == manager
 
   dscheduler:
-    image: dask_swarm:latest
+    image: ogrisel/distributed:latest
     ports:
      - "8786:8786"
      - "9786:9786"
@@ -30,7 +30,7 @@ services:
            - node.role == manager
 
   dworker:
-    image: dask_swarm:latest
+    image: ogrisel/distribtued:latest
     command: start-dworker.sh
     ports:
        - "8789:8789"
